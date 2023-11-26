@@ -1,0 +1,273 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+
+</head>
+<style>
+    #whole {
+           height: 100%;
+           overflow-y: scroll;
+       }
+       #whole::-webkit-scrollbar {
+           display: none;
+       }
+</style>
+<body id="whole">
+    <nav>
+        <!-- <a href="#"><img src="{% static 'img/logo.jpeg'%}" alt="logo"></a> -->
+    </nav>
+    <div class="form-wrapper">
+        <h2>Sign Up</h2>
+        <h3>Unlimited movies, TV shows, and more.</h3>
+        <div>
+            <style>
+                h3 {
+                    color: gray;
+                }
+
+                h5 {
+                    color: red;
+                }
+            </style>
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+            {% endfor %}
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-control">
+                <input type="email" name="email" placeholder="Email address" required />
+            </div>
+
+            <div class="form-control">
+                <input type="text" name="username" placeholder="Username" required />
+            </div>
+
+            <div class="form-control">
+                <input type="password" name="password" placeholder="Password" required />
+            </div>
+
+            <div class="form-control">
+                <input type="password" name="password2" placeholder="Confirm Password" required />
+            </div>
+
+            <button type="submit">Get Started</button>
+            <!-- <div class="form-help">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <a href="#">Need help?</a>
+            </div> -->
+        </form>
+
+        <!-- <p>Ready to watch? Enter your email to create or restart your membership</p> -->
+<br>
+        <br>
+        <br>
+        <p>Already have an account? <a href="/login">Login</a></p>
+
+
+
+        <small>
+            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+            <a href="#">Learn more.</a>
+        </small>
+    </div>
+</body>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/c8f1b665-bd37-400d-950f-413cb99552ec/GB-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background: #000; */
+    }
+
+
+
+    body::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        /* background: url("images/hero-img.jpg"); */
+        background-position: center;
+    }
+
+    /* 
+nav {
+    position: fixed;
+    padding: 25px 60px;
+    z-index: 1;
+} */
+
+    nav a img {
+        width: 167px;
+    }
+
+    .form-wrapper {
+        border-radius: 4px;
+        padding: 70px;
+        margin: 30px auto;
+        width: 450px;
+        background: rgba(0, 0, 0, .75);
+    }
+
+    .form-wrapper h2 {
+        color: #fff;
+        font-size: 2rem;
+    }
+
+    .form-wrapper form {
+        margin: 25px 0 15px;
+    }
+
+    form .form-control {
+        height: 50px;
+        position: relative;
+        margin-bottom: 16px;
+    }
+
+    .form-control input {
+        height: 100%;
+        width: 100%;
+        background: #333;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    .form-control input:is(:focus, :valid) {
+        background: #444;
+        padding: 2px 20px 0;
+    }
+
+    .form-control label {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+        color: #8c8c8c;
+        transition: all 0.1s ease;
+    }
+
+    .form-control input:is(:focus, :valid)~label {
+        font-size: 0.75rem;
+        transform: translateY(-130%);
+    }
+
+    form button {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 1rem;
+        background: #e50914;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        margin: 20px 0 10px;
+        cursor: pointer;
+        transition: 0.1s ease;
+    }
+
+    form button:hover {
+        background: #c40812;
+    }
+
+    .form-wrapper a {
+        text-decoration: none;
+    }
+
+    .form-wrapper a:hover {
+        text-decoration: underline;
+    }
+
+    .form-wrapper :where(label, p, small, a) {
+        color: #b3b3b3;
+    }
+
+    /* form .form-help {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    form .remember-me {
+        display: flex;
+    }
+
+    form .remember-me input {
+        margin-right: 5px;
+        accent-color: #b3b3b3;
+    }
+
+    form .form-help :where(label, a) {
+        font-size: 0.9rem;
+    } */
+
+    .form-wrapper p a {
+        color: #fff;
+    }
+
+    .form-wrapper small {
+        display: block;
+        margin-top: 15px;
+        color: #b3b3b3;
+    }
+
+    .form-wrapper small a {
+        color: #0071eb;
+    }
+
+    @media (max-width: 740px) {
+        body::before {
+            display: none;
+            background-color: black;
+        }
+
+        nav,
+        .form-wrapper {
+            padding: 20px;
+        }
+
+        nav a img {
+            width: 140px;
+        }
+
+        .form-wrapper {
+            width: 100%;
+            top: 43%;
+        }
+
+        .form-wrapper form {
+            margin: 25px 0 40px;
+        }
+    }
+</style>
+
+</html>

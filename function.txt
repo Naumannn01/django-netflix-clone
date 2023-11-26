@@ -1,0 +1,7 @@
+signup function
+login function
+logout
+uuid for movies
+ajax for add-to list
+orm get or create 
+regex for uuid
