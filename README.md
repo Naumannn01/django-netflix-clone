@@ -33,4 +33,4 @@ This project focuses on creating a Netflix-like clone with some basic functional
 - The learning process is continuous, and this project helped solidify backend concepts.
 
 ### 😊 Happy Coding!
-Keep learning and building awesome projects!
+Learning and building awesome projects!
